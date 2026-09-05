@@ -11,7 +11,7 @@ import discord
 from typing import TYPE_CHECKING, Any, Optional, Union
 import parsedatetime as pdt
 from dateutil.relativedelta import relativedelta
-from .utils import human_join
+from core.utils import human_join
 from discord.ext import commands
 from discord import app_commands
 import re

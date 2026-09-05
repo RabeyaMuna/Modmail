@@ -4,7 +4,7 @@ import copy
 import functools
 import io
 import re
-import time
+import time as time_module
 import traceback
 import typing
 import warnings
@@ -464,7 +464,7 @@ class Thread:
                     display_avatar = SimpleNamespace(url=author["avatar_url"])
 
                 data = {
-                    "id": round(time.time() * 1000 - discord.utils.DISCORD_EPOCH) << 22,
+                    "id": round(time_module.time() * 1000 - discord.utils.DISCORD_EPOCH) << 22,  # pylint: disable=E1101
                     "attachments": {},
                     "embeds": {},
                     "edited_timestamp": None,

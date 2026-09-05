@@ -3,6 +3,7 @@ import json
 import os
 import re
 import typing
+import builtins
 from copy import deepcopy
 
 from dotenv import load_dotenv
@@ -250,7 +251,7 @@ class ConfigManager:
     force_str = {"command_permissions", "level_permissions"}
 
     defaults = {**public_keys, **private_keys, **protected_keys}
-    all_keys = set(defaults.keys())
+    all_keys = builtins.set(defaults.keys())
 
     def __init__(self, bot):
         self.bot = bot
