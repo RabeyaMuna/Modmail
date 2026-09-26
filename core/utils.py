@@ -14,7 +14,6 @@ from discord.ext import commands
 
 from core.models import getLogger
 
-
 __all__ = [
     "strtobool",
     "User",

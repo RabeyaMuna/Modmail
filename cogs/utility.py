@@ -34,7 +34,6 @@ from core.models import (
 from core.utils import trigger_typing, truncate, DummyParam
 from core.paginator import EmbedPaginatorSession, MessagePaginatorSession
 
-
 logger = getLogger(__name__)
 
 
