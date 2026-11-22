@@ -11,28 +11,27 @@ import warnings
 from datetime import timedelta
 from types import SimpleNamespace
 
-import isodate
-
 import discord
-from discord.ext.commands import MissingRequiredArgument, CommandError
-from lottie.importers import importers as l_importers
+import isodate
+from discord.ext.commands import CommandError, MissingRequiredArgument
 from lottie.exporters import exporters as l_exporters
+from lottie.importers import importers as l_importers
 
 from core.models import DMDisabled, DummyMessage, getLogger
 from core.time import human_timedelta
 from core.utils import (
-    is_image_url,
-    parse_channel_topic,
-    match_title,
-    match_user_id,
-    truncate,
-    get_top_role,
+    AcceptButton,
+    ConfirmThreadCreationView,
+    DenyButton,
+    DummyParam,
     create_thread_channel,
     get_joint_id,
-    AcceptButton,
-    DenyButton,
-    ConfirmThreadCreationView,
-    DummyParam,
+    get_top_role,
+    is_image_url,
+    match_title,
+    match_user_id,
+    parse_channel_topic,
+    truncate,
 )
 
 logger = getLogger(__name__)
@@ -1062,10 +1061,7 @@ class Thread:
                     "more information"
                 )
             msg = await message.channel.send(
-                embed=discord.Embed(
-                    color=self.bot.error_color,
-                    description=description,
-                )
+                embed=discord.Embed(color=self.bot.error_color, description=description)
             )
         else:
             # Send the same thing in the thread channel.
@@ -1399,7 +1395,6 @@ class Thread:
                 # Plain to mods
                 embed.set_footer(text="[PLAIN] " + embed.footer.text)
                 msg = await destination.send(mentions, embed=embed)
-
         else:
             msg = await destination.send(mentions, embed=embed)
 
